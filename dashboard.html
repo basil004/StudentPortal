@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgb(8, 64, 132);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ; 
+    }
+
+    .dashboard-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    a {
+      display: block;
+      margin: 3rem;
+      padding: 1.5rem 2rem;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #welcome-message {
+      text-align: center;
+      padding: 5rem;
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-left: 6rem;
+      margin-right: 6rem;
+    }
+
+    footer {
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    #countdown {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0.5rem;
+      background-color: #333;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="sss.jpg" alt="Logo">
+    <h1>Dashboard</h1>
+    <div id="countdown"></div>
+  </header>
+  <main>
+    <div class="dashboard-links">
+      <a href="timetable.html">Time Table</a>
+      <a href="getdetails.php">Student Details</a>
+      <a href="logout.php">Logout</a>
+    </div>
+  </main>
+  <script>
+    const countdown = document.getElementById('countdown');
+    let timeLeft = 10 * 60; 
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+
+      countdown.textContent = `Time left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = 'logout.php';
+      }
+    }, 1000);
+  </script>
+
+  <div id="welcome-message">
+    <p>
+      <i>Welcome to BSS International's Student Portal, your digital gateway to academic excellence and holistic development. At BSS International, we are committed to nurturing young minds, fostering a culture of curiosity, creativity, and critical thinking. Our institution stands as a beacon of quality education, blending tradition with innovation to prepare students for the challenges of the modern world. With a rich tapestry of diverse cultures and perspectives, BSS International offers a vibrant learning environment where students are encouraged to explore their passions, expand their horizons, and realize their fullest potential. Through cutting-edge resources, dedicated faculty, and a supportive community, we empower students to excel academically, cultivate leadership skills, and become compassionate global citizens. Join us on this transformative journey as we strive to shape the leaders of tomorrow.</i></p><br><br><br>
+    <img src="bss.jpg" alt ="School picture" style="height: 25rem;width: 50rem; ">    
+    </div>
+  <footer>
+    <p>Contact Details: 123-456-7890</p>
+    <p>Address: 123 Main St, Anytown, USA</p>
+    <p>Email: info@bssinternational.com</p>
+  </footer>
+</body>
+</html>
